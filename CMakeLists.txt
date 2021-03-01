@@ -44,12 +44,15 @@ include(CompilerSettings)
 
 # install dependencies
 hunter_add_package(Boost COMPONENTS thread system filesystem chrono iostreams log program_options test)
+hunter_add_package(Protobuf)
 
 include_directories("${CMAKE_SOURCE_DIR}")
 # set library target name
 set(UTILITIES_TARGET "utilities")
+set(PROTO_TARGET "protocol")
 # add subdirectories to build the libraries
 add_subdirectory(libutilities)
+add_subdirectory(libprotocol)
 
 # test releated
 if (TESTS)
